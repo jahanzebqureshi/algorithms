@@ -1,0 +1,25 @@
+def binary_search (list, target):
+    first = 0
+    last = len(list) - 1
+    
+    while first <= last:
+        midpoint = (first+last)//2 #rounds down to nearest whole number (7/2 = 3)
+        if list[midpoint] == target: #if the value is at target
+            return midpoint
+        elif list [midpoint] < target: #if the midpoint is less than target
+            first = midpoint + 1 #you're checking the second half
+        else:
+            last = midpoint - 1 #Otherwise, you are checking the second half (before midpoint)
+            
+    return None
+    
+def verify(index):
+    if index is not None:
+        print ("Target found at index: ", index)
+    else:
+        print ("Target not found in list")
+            
+num = [1,2,3,4,5,6,7,8,9,10]
+    
+result = binary_search (num, 8)
+verify (result)
